@@ -12,6 +12,8 @@ This project implements an event-driven ETL flow:
 ![S3 Bucket](images/1.png)
 ![Raw JSON](images/2.png)
 
+<img src ='images/1.png width = "700">
+
 
 
 2. An S3 event triggers a Lambda function.
