@@ -2,20 +2,6 @@
 
 A lightweight AWS ETL pipeline that ingests **JSON files** into Amazon S3, automatically triggers an **AWS Lambda** transformation, writes the transformed data back to S3 in **Parquet** format, registers the dataset in the **AWS Glue Data Catalog**, and enables SQL querying with **Amazon Athena**.
 
-
-
-### High-level data flow (Diagram)
-
-```mermaid
-flowchart LR
-  A[Client / Data Source] -->|Upload JSON| B[(S3 Raw Bucket /raw/)]
-  B -->|ObjectCreated event| C[AWS Lambda\nFlatten + Transform]
-  C -->|Write Parquet| D[(S3 Processed Bucket /processed/)]
-  D --> E[AWS Glue Crawler]
-  E --> F[(Glue Data Catalog\nDatabase + Table)]
-  F --> G[Amazon Athena\nSQL Queries]
-
-
 ---
 
 ## Overview
@@ -62,3 +48,16 @@ This project implements an event-driven ETL flow:
 **Why Parquet?** Columnar storage reduces scan size and speeds up Athena queries.
 
 ---
+
+## Architecture
+
+### High-level data flow (Diagram)
+
+```mermaid
+flowchart LR
+  A[Client / Data Source] -->|Upload JSON| B[(S3 Raw Bucket /raw/)]
+  B -->|ObjectCreated event| C[AWS Lambda\nFlatten + Transform]
+  C -->|Write Parquet| D[(S3 Processed Bucket /processed/)]
+  D --> E[AWS Glue Crawler]
+  E --> F[(Glue Data Catalog\nDatabase + Table)]
+  F --> G[Amazon Athena\nSQL Queries]
