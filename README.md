@@ -1,6 +1,6 @@
 # AWS ETL Pipeline (S3 → Lambda → Parquet → Glue → Athena)
 
-A lightweight AWS ETL pipeline that ingests **JSON files** into Amazon S3, automatically triggers an **AWS Lambda** transformation, writes the transformed data back to S3 in **Parquet** format, registers the dataset in the **AWS Glue Data Catalog**, and enables SQL querying with **Amazon Athena**.
+A lightweight AWS ETL pipeline that ingests **JSON files** into Amazon S3, automatically triggers an **AWS Lambda** transformation, writes the transformed data back to S3 in **Parquet** format, registers the dataset metadata in the **AWS Glue Data Catalog**, and enables SQL querying with **Amazon Athena**.
 
 ---
 
